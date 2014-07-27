@@ -1,0 +1,14 @@
+"AddonInfo"
+{
+	"author_name"			"MeepDarknessMeep"
+	"author_email"			"meepdarknessmee@gmail.com"
+	"author_url"			""
+
+	"name"				"Meep Antiscript"
+	"version"			"0"
+
+	"up_date"			"0"
+
+	"info"				"An anticheat to obliterate cheaters."
+	"override"			"1"
+}
