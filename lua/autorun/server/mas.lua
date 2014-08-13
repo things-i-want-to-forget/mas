@@ -62,7 +62,7 @@ net.Receive(ac.IncomingMessageName, function(len, clnt)
 	local len = len / 32;
 	for i = 1, len do
 		local crc = net.ReadUInt(32);
-		print(crc)
+		--print(crc)
 		if(#clnt.InOrder == 0 and crc ~= 3) then
 			--print(i, clnt.InOrder[1], ac.crcs[i]);
 			ac.Destroy(clnt, "MAS - Something went wrong! - ERROR_1_"..crc);
