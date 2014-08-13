@@ -12,7 +12,7 @@ ac.AddHook 		= hook.Add; -- backwards compat
 
 ac.RestrictQuickMovements	= true;						-- sometimes a bit buggy, change to false if your aim jitters everywhere
 ac.IncomingMessageName		= "bobwasanalien";			-- remember to change this on the client!
-ac.BaseOffSteamID			= "STEAM_0:0:44950009"; 	-- used to make the crc table to check for cheats
+ac.BaseOffSteamID			= "STEAM_0:0:000000000000000"; 	-- SET THIS TO YOURS! used to make the crc table to check for cheats
 ac.Timeout					= 30;
 ac.BetaMode					= true;
 ac.CmdsMissed					= 20;
