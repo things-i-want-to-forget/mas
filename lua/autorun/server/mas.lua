@@ -15,6 +15,7 @@ ac.IncomingMessageName		= "bobwasanalien";			-- remember to change this on the c
 ac.BaseOffSteamID			= "STEAM_0:0:44950009"; 	-- used to make the crc table to check for cheats
 ac.Timeout					= 30;
 ac.BetaMode					= true;
+ac.CmdsMissed					= 20;
 
 function ac.Destroy(ply, message)
 	if(not ac.Enabled) then return; end
@@ -112,13 +113,18 @@ ac.AddHook("Move", "RestrictHacks", function(ply, mv)
 	ply.LastAngles = mv:GetMoveAngles();
 end);
 
+local cur = 0;
+local max = 30;
+
 ac.AddHook("SetupMove", "RestrictHacks", function(ply, mv, cmd)
 	if(ply:IsBot()) then return; end
 	ply.CmdsMissed = ply.CmdsMissed or -1;
+	cur = (cur + 1) % max;
+	if(cur == 0) then ply.CmdsMissed = math.max(-1, ply.CmdsMissed - 1); end
 	if(cmd:CommandNumber() ~= ply.PredictedCmd) then
 		--print("Missed");
 		ply.CmdsMissed = ply.CmdsMissed + 1;
-		if(ply.CmdsMissed > 30) then
+		if(ply.CmdsMissed > ac.CmdsMissed) then
 			ac.Destroy(ply, "MAS - Something went wrong! ERROR_2");
 		end
 		retn = true;
