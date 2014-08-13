@@ -155,7 +155,7 @@ end
 function ac.PoopOnCrc(crc, x)
 	DebugPrint();
 	if(not ac.crc[crc]) then
-		print(tostring(x).."\t"..crc);
+		if(ac.DevMode) then print(tostring(x).."\t"..crc); end
 		ac.crc[crc] 	= crc;
 		ac.scrc[crc] 	= false;
 		ac.InOrder[#ac.InOrder + 1] = crc;
